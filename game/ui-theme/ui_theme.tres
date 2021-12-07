@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=27 format=2]
 
+[ext_resource path="res://fonts/main/large_reg.tres" type="DynamicFont" id=1]
 [ext_resource path="res://game/ui-theme/button_style_pressed.tres" type="StyleBox" id=2]
 [ext_resource path="res://game/ui-theme/button_style_hover.tres" type="StyleBox" id=3]
 [ext_resource path="res://game/ui-theme/button_style_focused.tres" type="StyleBox" id=4]
@@ -7,14 +8,41 @@
 [ext_resource path="res://game/ui-theme/button_style_base.tres" type="StyleBox" id=6]
 [ext_resource path="res://game/ui-theme/panel_style_base.tres" type="StyleBox" id=7]
 [ext_resource path="res://game/ui-theme/panel_style_popup.tres" type="StyleBox" id=8]
+[ext_resource path="res://fonts/mono/normal_reg.tres" type="DynamicFont" id=9]
+[ext_resource path="res://fonts/main/normal_bold_ita.tres" type="DynamicFont" id=10]
+[ext_resource path="res://fonts/main/normal_bold.tres" type="DynamicFont" id=11]
+[ext_resource path="res://fonts/main/normal_reg_ita.tres" type="DynamicFont" id=12]
+[ext_resource path="res://game/ui-theme/checkbutton_style_base.tres" type="StyleBox" id=13]
+[ext_resource path="res://game/ui-theme/box_style_empty.tres" type="StyleBox" id=14]
+[ext_resource path="res://fonts/main/normal_reg.tres" type="DynamicFont" id=17]
+[ext_resource path="res://fonts/sans/normal_reg.tres" type="DynamicFont" id=18]
+[ext_resource path="res://game/ui-theme/panel_style_tab.tres" type="StyleBox" id=19]
+[ext_resource path="res://game/ui-theme/tab_style_fg.tres" type="StyleBox" id=20]
+[ext_resource path="res://game/ui-theme/tab_style_bg.tres" type="StyleBox" id=21]
+[ext_resource path="res://game/ui-theme/tab_style_disabled.tres" type="StyleBox" id=22]
+[ext_resource path="res://game/ui-theme/list_style_base.tres" type="StyleBox" id=23]
+[ext_resource path="res://game/ui-theme/list_style_focus.tres" type="StyleBox" id=24]
+[ext_resource path="res://game/ui-theme/listitem_style_focused.tres" type="StyleBox" id=25]
+[ext_resource path="res://game/ui-theme/texture_empty.tres" type="Texture" id=26]
+[ext_resource path="res://game/ui-theme/menuitem_style_hover.tres" type="StyleBox" id=27]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
 
 [resource]
+default_font = ExtResource( 17 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
-Button/colors/font_color_disabled = Color( 0.666667, 0.666667, 0.666667, 1 )
+Button/colors/font_color_disabled = Color( 0.25, 0.25, 0.25, 1 )
 Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = null
+Button/fonts/font = ExtResource( 18 )
 Button/styles/disabled = ExtResource( 5 )
 Button/styles/focus = ExtResource( 4 )
 Button/styles/hover = ExtResource( 3 )
@@ -38,24 +66,24 @@ CheckBox/styles/hover = null
 CheckBox/styles/hover_pressed = null
 CheckBox/styles/normal = null
 CheckBox/styles/pressed = null
-CheckButton/colors/font_color = Color( 0, 0, 0, 1 )
-CheckButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-CheckButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
-CheckButton/colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-CheckButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+CheckButton/colors/font_color = Color( 1, 1, 1, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.666667, 0.666667, 0.666667, 1 )
+CheckButton/colors/font_color_hover = Color( 1, 1, 1, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 1, 1, 1, 1 )
+CheckButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 CheckButton/constants/check_vadjust = 0
 CheckButton/constants/hseparation = 4
-CheckButton/fonts/font = null
+CheckButton/fonts/font = ExtResource( 17 )
 CheckButton/icons/off = null
 CheckButton/icons/off_disabled = null
 CheckButton/icons/on = null
 CheckButton/icons/on_disabled = null
-CheckButton/styles/disabled = null
-CheckButton/styles/focus = null
-CheckButton/styles/hover = null
-CheckButton/styles/hover_pressed = null
-CheckButton/styles/normal = null
-CheckButton/styles/pressed = null
+CheckButton/styles/disabled = ExtResource( 13 )
+CheckButton/styles/focus = ExtResource( 13 )
+CheckButton/styles/hover = ExtResource( 13 )
+CheckButton/styles/hover_pressed = ExtResource( 13 )
+CheckButton/styles/normal = ExtResource( 13 )
+CheckButton/styles/pressed = ExtResource( 13 )
 ColorPicker/constants/h_width = 30
 ColorPicker/constants/label_width = 10
 ColorPicker/constants/margin = 4
@@ -89,8 +117,8 @@ FileDialog/icons/folder = null
 FileDialog/icons/parent_folder = null
 FileDialog/icons/reload = null
 FileDialog/icons/toggle_hidden = null
-Fonts/fonts/large = null
-Fonts/fonts/normal = null
+Fonts/fonts/large = ExtResource( 1 )
+Fonts/fonts/normal = ExtResource( 17 )
 GraphEdit/colors/activity = Color( 0, 0, 0, 1 )
 GraphEdit/colors/grid_major = Color( 0, 0, 0, 1 )
 GraphEdit/colors/grid_minor = Color( 0, 0, 0, 1 )
@@ -126,7 +154,7 @@ GraphNode/styles/position = null
 GraphNode/styles/selectedframe = null
 GridContainer/constants/hseparation = 4
 GridContainer/constants/vseparation = 4
-HBoxContainer/constants/separation = 4
+HBoxContainer/constants/separation = 8
 HScrollBar/icons/decrement = null
 HScrollBar/icons/decrement_highlight = null
 HScrollBar/icons/increment = null
@@ -136,34 +164,34 @@ HScrollBar/styles/grabber_highlight = null
 HScrollBar/styles/grabber_pressed = null
 HScrollBar/styles/scroll = null
 HScrollBar/styles/scroll_focus = null
-HSeparator/constants/separation = 4
-HSeparator/styles/separator = null
+HSeparator/constants/separation = 8
+HSeparator/styles/separator = ExtResource( 14 )
 HSlider/icons/grabber = null
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = null
 HSlider/icons/tick = null
 HSlider/styles/grabber_area = null
 HSlider/styles/grabber_area_highlight = null
-HSlider/styles/slider = null
+HSlider/styles/slider = SubResource( 1 )
 HSplitContainer/constants/autohide = 1
 HSplitContainer/constants/separation = 12
 HSplitContainer/icons/grabber = null
 HSplitContainer/styles/bg = null
 Icons/icons/close = null
-ItemList/colors/font_color = Color( 0, 0, 0, 1 )
-ItemList/colors/font_color_selected = Color( 0, 0, 0, 1 )
-ItemList/colors/guide_color = Color( 0, 0, 0, 1 )
+ItemList/colors/font_color = Color( 1, 1, 1, 1 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0 )
 ItemList/constants/hseparation = 4
 ItemList/constants/icon_margin = 4
 ItemList/constants/line_separation = 2
 ItemList/constants/vseparation = 2
-ItemList/fonts/font = null
-ItemList/styles/bg = null
-ItemList/styles/bg_focus = null
-ItemList/styles/cursor = null
-ItemList/styles/cursor_unfocused = null
-ItemList/styles/selected = null
-ItemList/styles/selected_focus = null
+ItemList/fonts/font = ExtResource( 18 )
+ItemList/styles/bg = ExtResource( 23 )
+ItemList/styles/bg_focus = ExtResource( 24 )
+ItemList/styles/cursor = ExtResource( 14 )
+ItemList/styles/cursor_unfocused = ExtResource( 14 )
+ItemList/styles/selected = ExtResource( 14 )
+ItemList/styles/selected_focus = ExtResource( 25 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -207,13 +235,13 @@ MenuButton/styles/focus = null
 MenuButton/styles/hover = null
 MenuButton/styles/normal = null
 MenuButton/styles/pressed = null
-OptionButton/colors/font_color = Color( 0, 0, 0, 1 )
-OptionButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-OptionButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
-OptionButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+OptionButton/colors/font_color = Color( 1, 1, 1, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.666667, 0.666667, 0.666667, 1 )
+OptionButton/colors/font_color_hover = Color( 1, 1, 1, 1 )
+OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/hseparation = 2
-OptionButton/fonts/font = null
+OptionButton/fonts/font = ExtResource( 18 )
 OptionButton/icons/arrow = null
 OptionButton/styles/disabled = null
 OptionButton/styles/focus = null
@@ -223,22 +251,22 @@ OptionButton/styles/pressed = null
 Panel/styles/panel = ExtResource( 7 )
 PanelContainer/styles/panel = null
 PopupDialog/styles/panel = null
-PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-PopupMenu/colors/font_color_hover = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color = Color( 1, 1, 1, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.666667, 0.666667, 0.666667, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0.666667, 0.666667, 0.666667, 1 )
+PopupMenu/colors/font_color_hover = Color( 1, 1, 1, 1 )
 PopupMenu/constants/hseparation = 4
 PopupMenu/constants/vseparation = 4
-PopupMenu/fonts/font = null
+PopupMenu/fonts/font = ExtResource( 18 )
 PopupMenu/icons/checked = null
-PopupMenu/icons/radio_checked = null
-PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/radio_checked = ExtResource( 26 )
+PopupMenu/icons/radio_unchecked = ExtResource( 26 )
 PopupMenu/icons/submenu = null
 PopupMenu/icons/unchecked = null
-PopupMenu/styles/hover = null
+PopupMenu/styles/hover = ExtResource( 27 )
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
-PopupMenu/styles/panel = null
+PopupMenu/styles/panel = ExtResource( 19 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 PopupPanel/styles/panel = ExtResource( 8 )
@@ -257,18 +285,18 @@ RichTextLabel/constants/shadow_offset_x = 1
 RichTextLabel/constants/shadow_offset_y = 1
 RichTextLabel/constants/table_hseparation = 3
 RichTextLabel/constants/table_vseparation = 3
-RichTextLabel/fonts/bold_font = null
-RichTextLabel/fonts/bold_italics_font = null
-RichTextLabel/fonts/italics_font = null
-RichTextLabel/fonts/mono_font = null
-RichTextLabel/fonts/normal_font = null
+RichTextLabel/fonts/bold_font = ExtResource( 11 )
+RichTextLabel/fonts/bold_italics_font = ExtResource( 10 )
+RichTextLabel/fonts/italics_font = ExtResource( 12 )
+RichTextLabel/fonts/mono_font = ExtResource( 9 )
+RichTextLabel/fonts/normal_font = ExtResource( 17 )
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
 ScrollContainer/styles/bg = null
 SpinBox/icons/updown = null
-TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
-TabContainer/colors/font_color_disabled = Color( 0, 0, 0, 1 )
-TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
+TabContainer/colors/font_color_bg = Color( 1, 1, 1, 1 )
+TabContainer/colors/font_color_disabled = Color( 1, 1, 1, 1 )
+TabContainer/colors/font_color_fg = Color( 1, 1, 1, 1 )
 TabContainer/constants/hseparation = 4
 TabContainer/constants/label_valign_bg = 2
 TabContainer/constants/label_valign_fg = 0
@@ -281,10 +309,10 @@ TabContainer/icons/increment = null
 TabContainer/icons/increment_highlight = null
 TabContainer/icons/menu = null
 TabContainer/icons/menu_highlight = null
-TabContainer/styles/panel = null
-TabContainer/styles/tab_bg = null
-TabContainer/styles/tab_disabled = null
-TabContainer/styles/tab_fg = null
+TabContainer/styles/panel = ExtResource( 19 )
+TabContainer/styles/tab_bg = ExtResource( 21 )
+TabContainer/styles/tab_disabled = ExtResource( 22 )
+TabContainer/styles/tab_fg = ExtResource( 20 )
 Tabs/colors/font_color_bg = Color( 0, 0, 0, 1 )
 Tabs/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Tabs/colors/font_color_fg = Color( 0, 0, 0, 1 )
@@ -406,8 +434,8 @@ VScrollBar/styles/grabber_highlight = null
 VScrollBar/styles/grabber_pressed = null
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = null
-VSeparator/constants/separation = 4
-VSeparator/styles/separator = null
+VSeparator/constants/separation = 8
+VSeparator/styles/separator = ExtResource( 14 )
 VSlider/icons/grabber = null
 VSlider/icons/grabber_disabled = null
 VSlider/icons/grabber_highlight = null

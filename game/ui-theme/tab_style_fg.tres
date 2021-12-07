@@ -1,11 +1,11 @@
 [gd_resource type="StyleBoxFlat" format=2]
 
 [resource]
-content_margin_left = 8.0
-content_margin_right = 8.0
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color( 0.901961, 0.360784, 0.0901961, 1 )
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.113725, 0.105882, 0.121569, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -13,6 +13,5 @@ border_width_bottom = 1
 border_color = Color( 0.901961, 0.360784, 0.0901961, 1 )
 corner_radius_top_left = 2
 corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+expand_margin_bottom = 1.0
 anti_aliasing = false
