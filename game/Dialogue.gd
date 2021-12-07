@@ -20,7 +20,13 @@ class Sentence:
 		return self
 
 	func fmt() -> String:
-		return "{ \"%s\", %s }" % [text, choices]
+		var choices_fmt: String = "["
+		if choices.size() > 0:
+			choices_fmt += "\n"
+		for choice in choices:
+			choices_fmt += "\t" + choice.fmt() + "\n"
+		choices_fmt += "]"
+		return "{ \"%s\", %s }" % [text, choices_fmt]
 
 class Choice:
 	var text: String
@@ -31,6 +37,9 @@ class Choice:
 		self.text = text
 		self.action = action
 		self.next = next
+
+	func fmt() -> String:
+		return "{ \"%s\", action: \"%s\", next: \"%s\" }" % [text, action, next]
 
 var LIBRARY: Dictionary = {
 	"start": Sentence.new("Hey there!").next("start")
