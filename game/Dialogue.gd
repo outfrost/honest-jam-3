@@ -41,16 +41,50 @@ class Choice:
 	func fmt() -> String:
 		return "{ \"%s\", action: \"%s\", next: \"%s\" }" % [text, action, next]
 
-var LIBRARY: Dictionary = {
-	"start": Sentence.new("Hey there!").next("start")
+var library: Dictionary = {
+	"start": Sentence.new("Hey there!").choice("Hi", "start").choice("Hello", "foo")
 }
 
+export var choice_label_scene: PackedScene
+
+onready var sentence_label: RichTextLabel = $SentenceLabel
+onready var choices_container = $ChoicesContainer
+
 func _ready() -> void:
-	var sentence = get_sentence("foo")
+	var sentence = get_sentence("start")
 	print(sentence.fmt())
+	display_sentence(sentence)
+
+func display_sentence(s: Sentence) -> void:
+	for child in choices_container.get_children():
+		choices_container.remove_child(child)
+		child.queue_free()
+
+	sentence_label.bbcode_text = "\t" + s.text
+
+	for choice in s.choices:
+		var label: RichTextLabel = choice_label_scene.instance()
+		label.bbcode_text = "[center]%s[/center]" % choice.text
+		choices_container.add_child(label)
+		label.connect("accepted", self, "on_choice_accepted", [choice])
+
+func on_choice_accepted(c: Choice) -> void:
+	if !c.action.empty():
+		if has_method(c.action):
+			call(c.action)
+		else:
+			push_error("No method for action \"%s\"" % c.action)
+			display_sentence(Sentence.new("Oh no, we've glitched!").action("Whoops", "quit"))
+	else:
+		display_sentence(get_sentence(c.next))
 
 func get_sentence(key: String) -> Sentence:
-	return LIBRARY.get(
+	return library.get(
 		key,
-		Sentence.new("Oh no, we've glitched!").action("", "quit")
+		Sentence.new("Oh no, we've glitched!").action("Whoops", "quit")
 	)
+
+# Actions
+
+func quit() -> void:
+	find_parent("Game").back_to_menu()

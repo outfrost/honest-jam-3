@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/DialogueChoiceLabel.gd" type="Script" id=1]
+
+[node name="DialogueChoiceLabel" type="RichTextLabel"]
+grow_horizontal = 2
+focus_mode = 2
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+script = ExtResource( 1 )
