@@ -44,6 +44,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+DISPLAY_DELAY = 0.5
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5

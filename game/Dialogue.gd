@@ -50,20 +50,9 @@ export var choice_label_scene: PackedScene
 
 onready var sentence_label: RichTextLabel = $SentenceLabel
 onready var choices_container = $ChoicesContainer
-onready var sentence_font_regular: Font = sentence_label.get_font("normal_font")
-
-var words_by_width: Dictionary = {}
 
 func _ready() -> void:
 	reset()
-	var sentence: Sentence = get_sentence("start")
-	var words = sentence.text.split(" ", false)
-	for word in words:
-		var width: int = sentence_font_regular.get_string_size(word).x as int
-		var arr = words_by_width.get(width, [])
-		arr.append(word)
-		words_by_width[width] = arr
-	print(words_by_width)
 
 func start() -> void:
 	display_sentence(get_sentence("start"))
@@ -73,14 +62,14 @@ func reset() -> void:
 		choices_container.remove_child(child)
 		child.queue_free()
 
-	sentence_label.bbcode_text = ""
+	sentence_label.display("")
 
 func display_sentence(s: Sentence) -> void:
 	for child in choices_container.get_children():
 		choices_container.remove_child(child)
 		child.queue_free()
 
-	sentence_label.bbcode_text = "\t" + s.text
+	sentence_label.display(s.text)
 
 	var first_choice: bool = true
 	for choice in s.choices:
