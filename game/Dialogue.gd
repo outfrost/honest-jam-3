@@ -1,3 +1,4 @@
+class_name Dialogue
 extends Control
 
 class Sentence:
@@ -51,9 +52,17 @@ onready var sentence_label: RichTextLabel = $SentenceLabel
 onready var choices_container = $ChoicesContainer
 
 func _ready() -> void:
-	var sentence = get_sentence("start")
-	print(sentence.fmt())
-	display_sentence(sentence)
+	reset()
+
+func start() -> void:
+	display_sentence(get_sentence("start"))
+
+func reset() -> void:
+	for child in choices_container.get_children():
+		choices_container.remove_child(child)
+		child.queue_free()
+
+	sentence_label.bbcode_text = ""
 
 func display_sentence(s: Sentence) -> void:
 	for child in choices_container.get_children():
@@ -62,11 +71,15 @@ func display_sentence(s: Sentence) -> void:
 
 	sentence_label.bbcode_text = "\t" + s.text
 
+	var first_choice: bool = true
 	for choice in s.choices:
 		var label: RichTextLabel = choice_label_scene.instance()
 		label.bbcode_text = "[center]%s[/center]" % choice.text
 		choices_container.add_child(label)
 		label.connect("accepted", self, "on_choice_accepted", [choice])
+		if first_choice:
+			label.grab_focus()
+			first_choice = false
 
 func on_choice_accepted(c: Choice) -> void:
 	if !c.action.empty():

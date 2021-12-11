@@ -9,6 +9,7 @@ extends Node
 
 onready var main_menu: Control = $UI/MainMenu
 onready var transition_screen: TransitionScreen = $UI/TransitionScreen
+onready var dialogue: Dialogue = $Dialogue
 
 var debug: Reference
 
@@ -22,13 +23,13 @@ func _ready() -> void:
 	main_menu.connect("start_game", self, "on_start_game")
 
 func _process(delta: float) -> void:
-	DebugOverlay.display("fps %d" % Performance.get_monitor(Performance.TIME_FPS))
-
 	if Input.is_action_just_pressed("menu"):
 		back_to_menu()
 
 func on_start_game() -> void:
 	main_menu.hide()
+	dialogue.start()
 
 func back_to_menu() -> void:
+	dialogue.reset()
 	main_menu.show()

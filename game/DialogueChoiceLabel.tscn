@@ -1,11 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/DialogueChoiceLabel.gd" type="Script" id=1]
+[ext_resource path="res://game/ui-theme/choice_label_style_focused.tres" type="StyleBox" id=2]
+[ext_resource path="res://fonts/mono/mlarge_reg.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/main/mlarge_reg.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/main/mlarge_reg_ita.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/main/mlarge_bold_ita.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/main/mlarge_bold.tres" type="DynamicFont" id=7]
 
 [node name="DialogueChoiceLabel" type="RichTextLabel"]
 grow_horizontal = 2
 focus_mode = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 6 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 2 )
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
 script = ExtResource( 1 )
+default_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+focused_color = Color( 1, 1, 1, 1 )

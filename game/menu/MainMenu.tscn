@@ -49,6 +49,7 @@ anchor_right = 0.95
 anchor_bottom = 0.5
 bbcode_enabled = true
 bbcode_text = "[center][/center]"
+text = "[center][/center]"
 __meta__ = {
 "_edit_use_anchors_": false
 }

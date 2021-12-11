@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Dialogue",
+"language": "GDScript",
+"path": "res://game/Dialogue.gd"
+}, {
 "base": "Node",
 "class": "Game",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://game/loading/TransitionScreen.gd"
 } ]
 _global_script_class_icons={
+"Dialogue": "",
 "Game": "",
 "GroupMessenger": "",
 "TransitionScreen": ""
@@ -84,4 +90,5 @@ common/physics_fps=160
 [rendering]
 
 quality/driver/driver_name="GLES2"
+environment/default_clear_color=Color( 0.0823529, 0.109804, 0.121569, 1 )
 environment/default_environment="res://default_env.tres"
