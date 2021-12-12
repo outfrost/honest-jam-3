@@ -48,9 +48,9 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-display_delay = 0.5
-mangle_step = 0.1
-mangling_stop_delay = 3.0
+display_delay = 0.1
+mangle_step = 0.15
+mangling_stop_delay = 2.0
 mangling_chance = SubResource( 1 )
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="."]
