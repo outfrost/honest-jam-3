@@ -43,7 +43,12 @@ class Choice:
 		return "{ \"%s\", action: \"%s\", next: \"%s\" }" % [text, action, next]
 
 var library: Dictionary = {
-	"start": Sentence.new("Hey there!").choice("Hi", "start").choice("Hello", "foo")
+	"start": Sentence.new("Hey there!").choice("Hi", "test1").choice("Hello", "foo"),
+	"test1": Sentence.new("Why are you doing what you are doing?").next("test2"),
+	"test2": Sentence.new("The quick brown fox jumped over the lazy pigeon.").next("test3"),
+	"test3": Sentence.new("Sphinx of black quartz, hear my vow!").next("test4"),
+	"test4": Sentence.new("Lynxes are really cute.").next("test5"),
+	"test5": Sentence.new("Savior stands atop the mountain and screams into the void.").next("bar"),
 }
 
 export var choice_label_scene: PackedScene
@@ -53,6 +58,8 @@ onready var choices_container = $ChoicesContainer
 
 func _ready() -> void:
 	reset()
+	sentence_label.calc_word_widths(library)
+	sentence_label.connect("fully_displayed", self, "on_sentence_displayed")
 
 func start() -> void:
 	display_sentence(get_sentence("start"))
@@ -68,18 +75,20 @@ func display_sentence(s: Sentence) -> void:
 	for child in choices_container.get_children():
 		choices_container.remove_child(child)
 		child.queue_free()
+	choices_container.hide()
 
 	sentence_label.display(s.text)
 
-	var first_choice: bool = true
 	for choice in s.choices:
 		var label: RichTextLabel = choice_label_scene.instance()
 		label.bbcode_text = "[center]%s[/center]" % choice.text
 		choices_container.add_child(label)
 		label.connect("accepted", self, "on_choice_accepted", [choice])
-		if first_choice:
-			label.grab_focus()
-			first_choice = false
+
+func on_sentence_displayed() -> void:
+	choices_container.show()
+	if choices_container.get_child_count() > 0:
+		choices_container.get_child(0).grab_focus()
 
 func on_choice_accepted(c: Choice) -> void:
 	if !c.action.empty():

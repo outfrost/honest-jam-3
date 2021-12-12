@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game/Dialogue.gd" type="Script" id=1]
 [ext_resource path="res://game/ui-theme/ui_theme.tres" type="Theme" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://fonts/main/mlarge_bold_ita.tres" type="DynamicFont" id=7]
 [ext_resource path="res://fonts/main/mlarge_bold.tres" type="DynamicFont" id=8]
 [ext_resource path="res://game/SentenceLabel.gd" type="Script" id=9]
+
+[sub_resource type="Curve" id=1]
+bake_resolution = 50
+_data = [ Vector2( 0, 1 ), 0.0, -3.12317, 0, 0, Vector2( 0.35493, 0.318182 ), -1.04668, -1.04668, 0, 0, Vector2( 1, 0.0818181 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Dialogue" type="Control"]
 anchor_right = 1.0
@@ -44,7 +48,10 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-DISPLAY_DELAY = 0.5
+display_delay = 0.5
+mangle_step = 0.1
+mangling_stop_delay = 3.0
+mangling_chance = SubResource( 1 )
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
