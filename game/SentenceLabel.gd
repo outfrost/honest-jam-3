@@ -13,6 +13,7 @@ var words_by_width: Dictionary = {}
 var sentence_text: String = ""
 var time_elapsed: float = 0.0
 var times_mangled: int = 0
+var words_shown: int = 0
 var fully_displayed: bool = true
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -31,15 +32,25 @@ func _process(delta: float) -> void:
 		if time_elapsed < display_delay + times_mangled * mangle_step:
 			return
 
-		var chance: float = mangling_chance.interpolate_baked(inverse_lerp(
+		var progress: float = inverse_lerp(
 			display_delay,
 			display_delay + mangling_stop_delay,
-			time_elapsed))
+			time_elapsed)
+		var chance: float = mangling_chance.interpolate_baked(progress)
 
-		bbcode_text = get_mangled_sentence(sentence_text, chance)
+		var text = get_mangled_sentence(sentence_text, chance)
+		var words = text.split(" ", false)
+		words_shown = min(
+			max(words_shown + 1, (words.size() as float * progress) as int),
+			words.size())
+		bbcode_text = "\t"
+		for i in range(words_shown):
+			if i > 0:
+				bbcode_text += " "
+			bbcode_text += words[i]
 		times_mangled += 1
 	else:
-		bbcode_text = sentence_text
+		bbcode_text = "\t" + sentence_text
 		emit_signal("fully_displayed")
 		fully_displayed = true
 
@@ -58,6 +69,7 @@ func calc_word_widths(library: Dictionary) -> void:
 func display(text: String) -> void:
 	time_elapsed = 0.0
 	times_mangled = 0
+	words_shown = 0
 	fully_displayed = false
 	sentence_text = text
 	bbcode_text = ""
