@@ -12,7 +12,7 @@
 
 [sub_resource type="Curve" id=1]
 bake_resolution = 50
-_data = [ Vector2( 0, 1 ), 0.0, -3.12317, 0, 0, Vector2( 0.35493, 0.318182 ), -1.04668, -1.04668, 0, 0, Vector2( 1, 0.0818181 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, -2.81085, 0, 0, Vector2( 0.35493, 0.345455 ), -0.424641, -0.424641, 0, 0, Vector2( 1, 0 ), -0.72449, 0.0, 0, 0 ]
 
 [node name="Dialogue" type="Control"]
 anchor_right = 1.0
