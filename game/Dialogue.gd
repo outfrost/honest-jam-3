@@ -58,7 +58,9 @@ var library: Dictionary = {
 		.choice("[ Push it shut ]", "start3"),
 	"start3": Sentence.new(
 		"It's chilly, and raining. You pull the hood of your jacket on,"
-		+ " and start heading to the train station at a brisk pace.").next("broken_car"),
+		+ " and start heading to the train station at a brisk pace.").next("start4"),
+	"start4": Sentence.new(
+		"An absolutely inhumane time of day to make someone leave their house. Who even does that?").next("broken_car"),
 
 	"broken_car": Sentence.new(
 		"You pass by your car, still broken down.").next("broken_car_2"),
