@@ -144,7 +144,7 @@ var library: Dictionary = {
 		"Standing behind them and watching the game is the same girl you saw at the store.").next("park_4"),
 
 	"park_4": Sentence.new(
-		"You walk up to her. Her dog turns towards you, excited and happy, wagging their tail") \
+		"You walk up to her. Her dog turns towards you, excited and happy, wagging their tail.") \
 		.choice("[ Pet the dog ]", "park_5") \
 		.choice("[ Pet the dog ]", "park_5") \
 		.choice("[ Pet the dog ]", "park_5"),
@@ -174,7 +174,7 @@ var library: Dictionary = {
 		+ " You're now going through what looks like a rather depressing"
 		+ " industrial complex.").next("bus_4"),
 	"bus_4": Sentence.new(
-		"Finally, the bus makes a stop, and you rush to get off quickly").next("bus_5"),
+		"Finally, the bus makes a stop, and you rush to get off quickly.").next("bus_5"),
 	"bus_5": Sentence.new(
 		"You hop out the door...").next("bus_6"),
 	"bus_6": Sentence.new(
@@ -182,6 +182,8 @@ var library: Dictionary = {
 		+ " and everything dissolves into darkness.").next("facility_1"),
 
 	"facility_1": Sentence.new(
+		"... ... ...").next("facility_1a"),
+	"facility_1a": Sentence.new(
 		"You're standing in a dimly lit corridor, with shiny metal walls.").next("facility_2"),
 	"facility_2": Sentence.new(
 		"It looks like a poorly maintained warehouse of some kind. Or manufacturing plant?").next("facility_3"),

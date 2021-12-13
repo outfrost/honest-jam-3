@@ -64,7 +64,7 @@ func calc_word_widths(library: Dictionary) -> void:
 			if !arr.has(word):
 				arr.append(word)
 			words_by_width[width] = arr
-	print(words_by_width)
+#	print(words_by_width)
 
 func display(text: String) -> void:
 	time_elapsed = 0.0
@@ -94,5 +94,5 @@ func get_mangled_sentence(s: String, chance: float) -> String:
 
 func get_word_width(w: String) -> int:
 	var width: int = font_regular.get_string_size(w).x as int
-	width -= width % 5
+	width -= width % 2
 	return width
